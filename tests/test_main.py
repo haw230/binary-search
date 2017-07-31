@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 import sys
 
-sys.path.insert(0, '/home/ubuntu/workspace/binary_search') #change this to correct folder name
+sys.path.insert(0, '/home/ubuntu/workspace/binary_check') #change this to correct folder name
 sys.path.insert(0, '/home/ubuntu/workspace/solution')
 
-from main import binary_search #change to proper function name
-from solution import solved_binary_search #change to proper function name
+from main import binary_check #change to proper function name
+from solution import solved_binary_check #change to proper function name
 from time import sleep
 
 class aethetics(object):
@@ -17,17 +17,18 @@ class aethetics(object):
     BOLD = '\033[1m'
     LINE = '\033[95m———————————————————————————————————————————————————————————————\033[0m'
 
-class test_cases(object):
+class TestCases(object):
     def __init__(self):
         self.passed_tests = 0
         self.total_tests = 0
     
     def tests(self): #add tests here
-        f1,f2 = binary_search, solved_binary_search #change to proper function names
+        f1,f2 = binary_check, solved_binary_check #change to proper function names
         self.test(f1, f2, [1, 3, 2], 3)
-        self.test(f1, f2, [1, 2, 3], 2)
-        self.test(f1, f2, [1, 2, 3], 1)
+        self.test(f1, f2, [1, 2, 3], 9)
+        self.test(f1, f2, [1, 2, 3], -11)
         self.test(f1, f2, [1, 1, 1, 1], 1)
+        self.test(f1, f2, [-1, 1, -1, 1], -21)
         self.test(f1, f2, [-5, -4, -3 , -2 , 4, 5], -2)
         self.test(f1, f2, list(range(-100, 100, 3)), 65)
         self.test(f1, f2, list(range(-50, 50, 4)), 14)
@@ -35,7 +36,7 @@ class test_cases(object):
     
     def test(self, func1, func2, ls, num):
         ls1 = list(ls)
-        x, y = func1(ls, num, 0, len(ls) - 1), func2(ls1, num, 0 , len(ls) - 1)
+        x, y = func1(ls, num), func2(ls1, num)
         if(x == y):
             print(aethetics.GREEN + 'Test passed with ls of ' + aethetics.BLUE + str(ls) + aethetics.END + ' and ' 
             + aethetics.BLUE + str(num) + '\n' + aethetics.END)
@@ -58,6 +59,6 @@ class test_cases(object):
 if(__name__ == '__main__'):
     print('\n' + aethetics.GREEN + "Running Tests..." + aethetics.END)
     print(aethetics.LINE + '\n')
-    t = test_cases()
+    t = TestCases()
     t.tests()
     t.end()
