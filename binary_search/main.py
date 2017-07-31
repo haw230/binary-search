@@ -1,2 +1,2 @@
-def binary_search(ls, num, low, high):
+def binary_check(ls, num):
     pass

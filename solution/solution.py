@@ -1,4 +1,4 @@
-def solved_binary_search(ls, num, low, high):
+def solved_binary_check(ls, num):
     if(low > high):
         return -1
     mid = int((low + high) / 2)
